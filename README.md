@@ -16,7 +16,12 @@ This project might be abandoned at any time
 
 Figuring out how to catch outgoing and incoming packets and display them in the gui or creating a .txt file
 
-### Done:
+### Changelog
+##### (Order is from top to bottom since I can't be bothered to add version)
+Added a check to see if entered number is actually a number
+
+Changed the design of the gui
+
 Created a starting GUI
 
 

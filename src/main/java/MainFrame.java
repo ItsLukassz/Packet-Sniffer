@@ -23,15 +23,27 @@ public class MainFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String timeAsString = AmountInSeconds.getText();
                 System.out.println(timeAsString);
-                int time;
+                int time = 0;
+                boolean converted = false;
 
                 // check if timeAsString string contains anything except numbers
                 // if it does we give an error message
                 // if it doesn't we convert it to an int and start the sniffer
                 if (timeAsString.matches("[0-9]+")) {
-                    time = Integer.parseInt(timeAsString);
-                    RunningTime.setText("Running for: " + time + " seconds");
-                    status.setText("Status: Running");
+                    // putting the time conversion into an int to a try catch block in case the number entered is bigget than int limit
+                    // TODO: make it so that it doesn't crash if the number is bigger than int limit
+                        try {
+                            time = Integer.parseInt(timeAsString);
+                            converted = true;
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(null, "The number is too big", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+
+                        if(converted) {
+                            RunningTime.setText("Running for: " + time + " seconds");
+                            status.setText("Status: Running");
+                        }
+
                 }else {
                     JOptionPane.showMessageDialog(null, "Please enter a number");
                 }
