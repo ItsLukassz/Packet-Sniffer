@@ -31,7 +31,6 @@ public class MainFrame extends JFrame {
                 // if it doesn't we convert it to an int and start the sniffer
                 if (timeAsString.matches("[0-9]+")) {
                     // putting the time conversion into an int to a try catch block in case the number entered is bigget than int limit
-                    // TODO: make it so that it doesn't crash if the number is bigger than int limit
                         try {
                             time = Integer.parseInt(timeAsString);
                             converted = true;
